@@ -1,4 +1,4 @@
-name: "Deployment of python app"
+name: deployment-of-a-python-app
 on: [push]
 jobs:
   build-and-deploy:

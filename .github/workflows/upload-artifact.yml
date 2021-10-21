@@ -1,0 +1,11 @@
+steps:
+- uses: actions/checkout@v2
+
+- run: mkdir -p boobs
+
+- run: echo hello > boobs/bo.obs
+
+- uses: actions/upload-artifact@v2
+  with:
+    name: my-artifact
+    path: boobs/boo.bs

@@ -28,28 +28,28 @@ jobs:
     - name: Unit testing
       run: |
         python3 -m doctest factorial.py
-  deploy:
-    steps:
-      - name: SSH Server Deploy
-    # You may pin to the exact commit or the version.
-    # uses: kostya-ten/ssh-server-deploy@e0deb814bc458a68b61f6597a865d096e33eb586
-    uses: kostya-ten/ssh-server-deploy@v4
-    with:
-      # Host
-      host: ssh.nedko.info
-      # Port
-      port: # optional, default is 22
-      # Username
-      username: $ {{ SSH_USER }}
-      # Password
-      password: $ {{ SSH_PASSWORD }}
-      # Private key
-      private_key: # optional
-      # Before script
-      before_script: # optional
-      # After script
-      after_script: # optional
-      # After script
-      scp_source: # optional
-      # After script
-      scp_target: # optional, default is ~
+  # deploy:
+  #   steps:
+  #     - name: SSH Server Deploy
+  #   # You may pin to the exact commit or the version.
+  #   # uses: kostya-ten/ssh-server-deploy@e0deb814bc458a68b61f6597a865d096e33eb586
+  #   uses: kostya-ten/ssh-server-deploy@v4
+  #   with:
+  #     # Host
+  #     host: ssh.nedko.info
+  #     # Port
+  #     port: # optional, default is 22
+  #     # Username
+  #     username: $ {{ SSH_USER }}
+  #     # Password
+  #     password: $ {{ SSH_PASSWORD }}
+  #     # Private key
+  #     private_key: # optional
+  #     # Before script
+  #     before_script: # optional
+  #     # After script
+  #     after_script: # optional
+  #     # After script
+  #     scp_source: # optional
+  #     # After script
+  #     scp_target: # optional, default is ~

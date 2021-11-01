@@ -29,11 +29,12 @@ jobs:
     #   run: |
     #     python3 -m doctest factorial.py
     #     steps:
+
     - name: Copy folder content recursively to remote
       uses: garygrossgarten/github-action-scp@release
       with:
-        local: factorial.py
-        remote: /home/gha/
-        host: ${{ secrets.SSH_HOST }}
+        local: .
+        remote: .
+        host: ${{ secrets.HOST }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}

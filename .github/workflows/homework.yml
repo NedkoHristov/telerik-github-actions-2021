@@ -30,6 +30,4 @@ jobs:
         python3 -m doctest factorial.py
         steps:
     - name: SSH Server Deploy
-      run: |
-        scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ SSH_USER }}@${{ SSH_HOST }}:/home/gha/
-        echo "Finished."
+      run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ SSH_USER }}@${{ SSH_HOST }}:/home/gha/"

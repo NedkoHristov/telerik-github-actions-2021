@@ -29,18 +29,19 @@ jobs:
     #   run: |
     #     python3 -m doctest factorial.py
     #     steps:
-    - name: Adding Known hosts
+    - name: CD part of the task - copy all files to destination port via ssh
       run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"
       # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
       # TODO: Migrate to rsync
-    - name: notify on slack on every event
-      uses: voxmedia/github-action-slack-notify-build@v1
-      with:
-        channel: telerik-upskill-devops
-        status: STARTED
-        color: good
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SSH_SLACK_WEBHOOK }}
-        with:
-        status: ${{ job.status }}
 
+# TODO - use hashi vault for secret management
+    # - name: Slack Notification
+    #   uses: rtCamp/action-slack-notify@v2
+    #   env:
+    #     VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
+    #     VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SSH_SLACK_WEBHOOK }}

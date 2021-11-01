@@ -25,12 +25,12 @@ jobs:
     - name: Style with pycodestyle
       run: |
         pycodestyle *.py
-    # - name: Unit testing
-    #   run: |
-    #     python3 -m doctest factorial.py
-    #     steps:
+    - name: Unit testing
+      run: |
+        python3 -m doctest factorial.py
+        steps:
     - name: Adding Known hosts
       run: ssh-keyscan -H ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/known_hosts
     - name: SSH Server Deploy
       # run: echo ${{ SSH_USER }}
-      run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/"
+      run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"

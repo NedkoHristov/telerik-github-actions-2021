@@ -29,7 +29,7 @@ jobs:
     #   run: |
     #     python3 -m doctest factorial.py
     #     steps:
-    - name: CD part of the task - copy all files to destination port via ssh
+    # - name: CD part of the task - copy all files to destination port via ssh
       # run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"
       # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
       # TODO: Migrate to rsync

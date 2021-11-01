@@ -45,3 +45,6 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SSH_SLACK_WEBHOOK }}
+        SLACK_CHANNEL: telerik-upskill-devops
+        SLACK_USERNAME: shitBot
+        

@@ -38,6 +38,15 @@ jobs:
     #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
     #   # TODO: Migrate to rsync
 
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: All py files
+        path: .
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
+
     # TODO - use hashi vault for secret management
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2

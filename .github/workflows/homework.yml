@@ -39,10 +39,9 @@ jobs:
     #   # TODO: Migrate to rsync
 
     - name: Artifactory
-    - run: mkdir -p artifact/
-
-    - run: echo hello > artifact/world.txt
-
+    - run: |
+          mkdir -p artifact/
+          echo hello > artifact/world.txt
     - uses: actions/upload-artifact@v2
       with:
         name: my-lame-artifact

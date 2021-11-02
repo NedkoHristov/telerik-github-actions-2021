@@ -29,11 +29,14 @@ jobs:
     #   run: |
     #     python3 -m doctest factorial.py
     #     steps:
-    
-    - name: CD part of the task - copy all files to destination port via ssh
-      run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"
-      # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
-      # TODO: Migrate to rsync
+
+    # Dani Rankov gave excellent reason why I need to 
+    # ditch the scp approach - "Change your thinking from a pet to a herd".
+    # So I'm migrating to a GitHub artifact and later on - to jFrog Artifactory
+    # - name: CD part of the task - copy all files to destination port via ssh
+    #   run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"
+    #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
+    #   # TODO: Migrate to rsync
 
     # TODO - use hashi vault for secret management
     - name: Slack Notification

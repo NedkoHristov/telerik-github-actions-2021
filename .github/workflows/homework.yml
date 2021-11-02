@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: All py files
-        path: .
+        path: 
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
 

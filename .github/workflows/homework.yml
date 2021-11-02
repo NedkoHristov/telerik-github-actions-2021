@@ -38,13 +38,15 @@ jobs:
     #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
     #   # TODO: Migrate to rsync
 
+    - name: Artifactory
+    - run: mkdir -p artifact/
 
-    - name: Archive production artifacts
+    - run: echo hello > artifact/world.txt
+
     - uses: actions/upload-artifact@v2
       with:
-        name: my-shitty-artifact
-        path: .
-
+        name: my-lame-artifact
+        path: artifact/world.txt
 
     # TODO - use hashi vault for secret management
     - name: Slack Notification

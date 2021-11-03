@@ -13,3 +13,5 @@ To make me feel that I've learn something from this chapter my goal is to produc
 * Use SonarCloud for code quality/code security
 * Save artefacts in GitHub and/or jfrog artifactory
 * Build docker container containing the python script
+
+* Connect Snyk

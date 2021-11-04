@@ -32,7 +32,7 @@ jobs:
     # - run: mkdir -p path/to/artifact
     # - run: echo hello > path/to/artifact/world.txt
     - run: |
-        crystal build hello-world.cr
+        crystal build /code/hello-world.cr
         ./hello-world
 
     - uses: actions/upload-artifact@v2

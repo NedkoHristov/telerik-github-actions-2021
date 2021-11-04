@@ -36,6 +36,18 @@ jobs:
         path: path/to/artifact/world.txt
     # TODO - use hashi vault for secret management
 
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/ruby@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+
   notification:
     runs-on: ubuntu-latest
     steps:
@@ -45,12 +57,3 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SSH_SLACK_WEBHOOK }}
         SLACK_CHANNEL: telerik-upskill-devops
         SLACK_USERNAME: shitBot
-
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/ruby@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

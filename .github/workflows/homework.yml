@@ -38,6 +38,10 @@ jobs:
     # TODO - use hashi vault for secret management
 
   notification:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Slack Notification
@@ -48,6 +52,10 @@ jobs:
         SLACK_USERNAME: shitBot
 
   security:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@master

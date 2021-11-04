@@ -1,9 +1,0 @@
-name: learn-github-actions
-on: [push] #we use on on what events we trigger it
-jobs:
-  hello-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2 #download the action actions/checkout@v2
-      - run: echo "This is our first Github Workflow <3"
-      - run: echo "Second echo, just messin' arround"

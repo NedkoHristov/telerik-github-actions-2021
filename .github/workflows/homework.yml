@@ -29,13 +29,16 @@ jobs:
     #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
     
     - uses: actions/checkout@v2
-    - run: mkdir -p path/to/artifact
-    - run: echo hello > path/to/artifact/world.txt
+    # - run: mkdir -p path/to/artifact
+    # - run: echo hello > path/to/artifact/world.txt
+    - run: |
+        crystal build hello-world.cr
+        ./hello-world
 
     - uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: path/to/artifact/world.txt
+        name: hello-world artifact
+        path: hello-world
     # TODO - use hashi vault for secret management
 
   security:

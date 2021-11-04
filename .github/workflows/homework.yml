@@ -3,41 +3,30 @@ name: Telerik-Github-Actions-Practice
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows, macos-latest]
     steps:
     - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
     - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
     - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
     - name: Check out repository code
       uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint
-        pip install pycodestyle
-    - name: Lint with pylint
-      run: |
-        python lint_test.py
-    - name: Style with pycodestyle
-      run: |
-        pycodestyle *.py
-    # - name: Unit testing
-    #   run: |
-    #     python3 -m doctest factorial.py
-    #     steps:
+
+    - name: Install Crystal
+      uses: crystal-lang/install-crystal@v1
+    - name: Run tests
+      run: crystal spec
 
     # Dani Rankov gave excellent reason why I need to 
     # ditch the scp approach - "Change your thinking from a pet to a herd".
     # So I'm migrating to a GitHub artifact and later on - to jFrog Artifactory
-    # - name: CD part of the task - copy all files to destination port via ssh
     #   run: "scp -rC -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/gha/github-actions/"
     #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
-    #   # TODO: Migrate to rsync
-
+    
     - uses: actions/checkout@v2
     - run: mkdir -p path/to/artifact
     - run: echo hello > path/to/artifact/world.txt

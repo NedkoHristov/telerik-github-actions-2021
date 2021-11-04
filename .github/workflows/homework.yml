@@ -20,7 +20,7 @@ jobs:
     - name: Run tests
       run: crystal spec
     - name: Build crystal
-      run: crystal build *.cr
+      run: crystal build code/
 
     # Dani Rankov gave excellent reason why I need to 
     # ditch the scp approach - "Change your thinking from a pet to a herd".

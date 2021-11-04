@@ -35,8 +35,11 @@ jobs:
       with:
         name: my-artifact
         path: path/to/artifact/world.txt
-
     # TODO - use hashi vault for secret management
+
+  notification:
+    runs-on: ${{ matrix.os }}
+    steps:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
@@ -45,14 +48,10 @@ jobs:
         SLACK_USERNAME: shitBot
 
   security:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@master
-      - uses: snyk/actions/setup@master
-      - uses: actions/setup-go@v1
-        with:
-          go-version: '1.13'
-      - name: Snyk monitor
-        run: snyk test
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/ruby@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

@@ -35,3 +35,15 @@ jobs:
       with:
         name: hello_world
         path: hello_world/out
+
+  notifications:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SSH_SLACK_WEBHOOK }}
+        SLACK_CHANNEL: telerik-upskill-devops
+        SLACK_USERNAME: shitBot
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_FOOTER: "You better not know who wrote this :D"

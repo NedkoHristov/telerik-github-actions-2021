@@ -21,7 +21,7 @@ jobs:
       run: crystal spec
     - name: Build crystal
       # uses: actions/checkout@v2
-    - working-directory: ./code
+    # - working-directory: ./code
       run: |
         crystal hello-world.cr
 

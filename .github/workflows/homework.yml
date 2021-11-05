@@ -12,18 +12,29 @@ jobs:
     - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
     - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
 
-    - name: Check out repository code
-      uses: actions/checkout@v2
+    # - name: Check out repository code
+    #   uses: actions/checkout@v2
 
     - name: Install Crystal
       uses: crystal-lang/install-crystal@v1
+
     - name: Run tests
       run: crystal spec
-    - name: Build crystal
-      # uses: actions/checkout@v2
-    - working-directory: ./code
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run Crystal
       run: |
         crystal hello-world.cr
+        pwd
+        ls -lah
+    
+    - name: Build crystal
+      uses: actions/checkout@v2
+    - working-directory: ./code
+      run: |
+        crystal build hello-world.cr
         pwd
         ls -lah
 

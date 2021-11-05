@@ -15,12 +15,14 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v2
 
+
     - name: Install Crystal
       uses: crystal-lang/install-crystal@v1
     - name: Run tests
       run: crystal spec
     - name: Build crystal
-    - working-directory: code
+      uses: actions/checkout@v2
+#    - working-directory: code
       run: crystal code/hello-world.cr
 
     # Dani Rankov gave excellent reason why I need to 

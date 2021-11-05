@@ -1,0 +1,13 @@
+name: hello_world
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  hello_world:
+    main: src/hello_world.cr
+
+crystal: 0.35.1
+
+license: MIT

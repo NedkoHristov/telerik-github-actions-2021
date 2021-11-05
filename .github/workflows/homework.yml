@@ -36,6 +36,20 @@ jobs:
         name: hello_world
         path: hello_world/out
 
+    - name: Download previously created artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: hello_world
+    - shell: bash
+      run: |
+        ./hello_world
+        ls
+    - name: Upload math result for job 2
+      uses: actions/upload-artifact@v2
+      with:
+        name: homework
+        path: math-homework.txt
+
   notifications:
     needs: build
     runs-on: ubuntu-latest

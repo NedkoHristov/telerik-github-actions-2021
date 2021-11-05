@@ -25,12 +25,6 @@ jobs:
     - name: Run Crystal
       run: |
         crystal hello_world/src/hello_world.cr
-        pwd
-        ls -lah
     
     - name: Build crystal
-      run: |
-        crystal hello_world/src/hello_world.cr
-        pwd
-        ls -lah
-        ll
+      run: crystal hello_world/src/hello_world.cr

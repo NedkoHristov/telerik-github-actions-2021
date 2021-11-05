@@ -20,8 +20,8 @@ jobs:
     - name: Run tests
       run: crystal spec
     - name: Build crystal
-      uses: actions/checkout@v2
     - working-directory: ./code
+      uses: actions/checkout@v2
       run: crystal hello-world.cr
 
     # Dani Rankov gave excellent reason why I need to 

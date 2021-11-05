@@ -1,4 +1,4 @@
-name: Telerik-Github-Actions-Practice
+name: Telerik-Github-Actions-Practice-working-state
 
 on: [push]
 jobs:

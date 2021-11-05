@@ -24,13 +24,13 @@ jobs:
 
     - name: Run Crystal
       run: |
-        crystal /home/runner/work/telerik-github-actions-2021/src/game-of-life.cr
+        crystal hello_world/src/hello_world.cr
         pwd
         ls -lah
     
     - name: Build crystal
       run: |
-        crystal /home/runner/work/telerik-github-actions-2021/build game-of-life.cr
+        crystal hello_world/src/hello_world.cr
         pwd
         ls -lah
         ll

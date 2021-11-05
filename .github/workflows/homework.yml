@@ -25,6 +25,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run Crystal
+      uses: actions/checkout@v2
       run: |
         crystal hello-world.cr
         pwd

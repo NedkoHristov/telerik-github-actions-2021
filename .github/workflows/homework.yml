@@ -22,11 +22,10 @@ jobs:
     - name: Run tests
       run: crystal spec
 
-    # - name: Checkout repo
-    #   uses: actions/checkout@v2
+    - name: Checkout repo
+      uses: actions/checkout@v2
 
     - name: Run Crystal
-      uses: actions/checkout@v2
       run: |
         crystal hello-world.cr
         pwd
@@ -47,6 +46,7 @@ jobs:
     #   # TODO: Create unique directory on upload (in HH:MM:SS:DD:MM:YYYY format)
     - name: checkout
     - uses: actions/checkout@v2
+
     # - run: mkdir -p path/to/artifact
     # - run: echo hello > path/to/artifact/world.txt
     - run: |

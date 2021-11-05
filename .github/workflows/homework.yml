@@ -24,13 +24,13 @@ jobs:
 
     - name: Run Crystal
       run: |
-        crystal src/game-of-life.cr
+        crystal game-of-life.cr
         pwd
         ls -lah
     
     - name: Build crystal
       run: |
-        crystal build src/game-of-life.cr
+        crystal build game-of-life.cr
         pwd
         ls -lah
         ll

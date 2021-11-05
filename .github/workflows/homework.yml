@@ -22,7 +22,7 @@ jobs:
     - name: Build crystal
       uses: actions/checkout@v2
     - working-directory: code
-      run: crystal code/hello-world.cr
+      run: crystal hello-world.cr
 
     # Dani Rankov gave excellent reason why I need to 
     # ditch the scp approach - "Change your thinking from a pet to a herd".

@@ -20,6 +20,7 @@ jobs:
     - name: Run tests
       run: crystal spec
     - name: Build crystal
+    - working-directory: code
       run: crystal code/hello-world.cr
 
     # Dani Rankov gave excellent reason why I need to 

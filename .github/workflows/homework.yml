@@ -32,7 +32,8 @@ jobs:
         ls -lah
     
     - name: Build crystal
-      uses: actions/checkout@v2
+      uses: actions/checkout@
+      
     - working-directory: ./code
       run: |
         crystal build hello-world.cr
@@ -49,6 +50,7 @@ jobs:
 
     # - run: mkdir -p path/to/artifact
     # - run: echo hello > path/to/artifact/world.txt
+    - name: Build the app
     - run: |
         crystal build code/hello-world.cr
         ./code/hello-world

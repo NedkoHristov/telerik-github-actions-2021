@@ -37,6 +37,7 @@ jobs:
         path: hello_world/out
 
   notifications:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Slack Notification

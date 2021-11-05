@@ -29,7 +29,7 @@ jobs:
       run: |
         # mkdir -p hello_world/out
         # crystal build hello_world/src/hello_world.cr --static --release -o hello_world/out/hello_world
-        crystal build hello_world/src/hello_world.cr -o hello_world/out/hello_world
+        crystal build hello_world/src/hello_world.cr -o hello_world/out/hello_wo rld
 
     - uses: actions/upload-artifact@v2
       with:

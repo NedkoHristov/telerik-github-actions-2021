@@ -20,9 +20,12 @@ jobs:
     - name: Run tests
       run: crystal spec
     - name: Build crystal
-    - working-directory: ./code
       uses: actions/checkout@v2
-      run: crystal hello-world.cr
+    - working-directory: ./code
+      run: |
+        crystal hello-world.cr
+        ls -la
+        pwd
 
     # Dani Rankov gave excellent reason why I need to 
     # ditch the scp approach - "Change your thinking from a pet to a herd".

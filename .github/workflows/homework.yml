@@ -28,7 +28,6 @@ jobs:
     - name: Build crystal
       run: crystal hello_world/src/hello_world.cr
 
-    - name: Save the build binary
     - uses: actions/upload-artifact@v2
       with:
         name: hello_world

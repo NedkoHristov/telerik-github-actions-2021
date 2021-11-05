@@ -26,9 +26,11 @@ jobs:
         crystal hello_world/src/hello_world.cr
     
     - name: Build crystal
-      run: crystal hello_world/src/hello_world.cr
+      run: |
+        mkdir hello_world/out
+        crystal build hello_world.cr --static --release -o ../out/hello_world
 
     - uses: actions/upload-artifact@v2
       with:
         name: hello_world
-        path: hello_world/src/hello_world
+        path: hello_world/out

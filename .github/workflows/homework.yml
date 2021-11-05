@@ -34,6 +34,7 @@ jobs:
         crystal build src/game-of-life.cr
         pwd
         ls -lah
+        ll
 
     # Dani Rankov gave excellent reason why I need to 
     # ditch the scp approach - "Change your thinking from a pet to a herd".
